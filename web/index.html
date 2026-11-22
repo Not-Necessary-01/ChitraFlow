@@ -1,10 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<title>ChitraFlow</title>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171326"><meta name="description" content="ChitraFlow AI video studio">
+  <link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css">
+  <title>ChitraFlow — AI Video Studio</title>
 </head>
 <body>
-<h1>ChitraFlow</h1>
-</body>
-</html>
+<header class="top"><div class="brand"><span class="logo">✦</span><div><b>ChitraFlow</b><small>AI VIDEO STUDIO</small></div></div><span class="pill">ZERO-BUDGET LAB</span></header>
+<main>
+  <section class="hero"><p class="eyebrow">CREATE · DIRECT · EDIT</p><h1>कल्पना से <em>चलचित्र</em> तक।</h1><p class="muted">अपना पात्र चुनें, दृश्य लिखें और छोटे शॉट्स से कहानी बनाएँ।</p></section>
+  <section class="panel">
+    <div class="section-head"><h2>नया प्रोजेक्ट</h2><span class="step">01 / CREATE</span></div>
+    <label>वीडियो बनाने का तरीका</label>
+    <div class="segmented"><button class="active" data-mode="text">Text → Video</button><button data-mode="image">Image → Video</button></div>
+    <label for="prompt">दृश्य का वर्णन</label><textarea id="prompt" rows="4" placeholder="उदाहरण: बारिश के बाद पुराने महल के आँगन में एक पात्र धीरे-धीरे कैमरे की ओर चलता है..."></textarea>
+    <div class="two">
+      <div><label for="style">दृश्य शैली</label><select id="style"><option>Photorealistic</option><option>3D Cinematic</option><option>Anime</option><option>Cartoon</option><option>Fantasy</option><option>Documentary</option></select></div>
+      <div><label for="ratio">Aspect ratio</label><select id="ratio"><option>16:9</option><option>9:16</option><option>1:1</option></select></div>
+    </div>
+    <div id="imageArea" class="upload hidden"><label for="reference">रेफरेंस फोटो (अपनी/अनुमति वाली)</label><input id="reference" type="file" accept="image/*"><p class="hint">फोटो अभी केवल इस ब्राउज़र में preview होगी। सर्वर पर नहीं भेजी जाती।</p><img id="preview" alt="Reference preview" class="preview hidden"></div>
+    <div class="two">
+      <div><label for="duration">कुल अवधि</label><select id="duration"><option value="30">30 सेकंड</option><option value="45">45 सेकंड</option><option value="60">60 सेकंड</option></select></div>
+      <div><label for="shot">प्रति शॉट अवधि</label><select id="shot"><option value="5">5 सेकंड</option><option value="4">4 सेकंड</option><option value="6">6 सेकंड</option></select></div>
+    </div>
+    <div class="note">ℹ️ 30–60 सेकंड का वीडियो कई छोटे क्लिप जोड़कर बनेगा। इससे चेहरा/कपड़े/सीन में बदलाव को नियंत्रित करना आसान होगा।</div>
+    <label class="consent"><input type="checkbox" id="rights"> मैं इस फोटो/चेहरे के उपयोग का अधिकार रखता/रखती हूँ या स्पष्ट अनुमति प्राप्त है।</label>
+    <button id="generate" class="primary">✦ जनरेशन सेटअप जाँचें</button>
+    <p id="status" class="status" role="status">AI मॉडल अभी कनेक्ट नहीं है — यह starter UI है।</p>
+  </section>
+  <section class="panel">
+    <div class="section-head"><h2>Character Library</h2><span class="step">02 / IDENTITY</span></div>
+    <p class="muted">स्थायी पात्र प्रोफ़ाइल अगली रिलीज़ में जोड़ी जाएगी: reference images, face notes, outfit, seed और continuity prompts.</p>
+    <div class="empty">✧<br><b>अभी कोई पात्र सेव नहीं है</b><small>पहले पात्र की अनुमति वाली रेफरेंस तस्वीर जोड़ें।</small></div>
+  </section>
+  <section class="panel">
+    <div class="section-head"><h2>Backend कनेक्शन</h2><span class="step">03 / SETTINGS</span></div>
+    <label for="backend">Backend URL</label><input id="backend" type="url" placeholder="https://your-api.example">
+    <button id="check" class="secondary">कनेक्शन जाँचें</button><p id="connection" class="status">अभी सेट नहीं है।</p>
+  </section>
+  <p class="foot">ChitraFlow Starter · AI generation requires a connected inference provider.</p>
+</main>
+<script src="app.js"></script>
+</body></html>
